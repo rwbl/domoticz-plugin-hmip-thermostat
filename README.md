@@ -1,41 +1,43 @@
-# Domoticz Plugin homematicIP Thermostats HmIP-eTRV, HmIP-eTRV-2, HmIP-WTH-2
-Domoticz plugin for the homematicIP Thermostats HmIP-eTRV, HmIP-eTRV-2, HmIP-WTH-2.
+# Domoticz Plugin homematicIP Thermostats HmIP-eTRV-B, HmIP-eTRV-2, HmIP-WTH-2
+Domoticz plugin for the homematicIP Thermostats HmIP-eTRV-B, HmIP-eTRV-2, HmIP-WTH-2.
 
 # Objectives
 * To set the temperature setpoint of a thermostat
 * To get the actual temperaturemeasured by the thermostat
 
+![domoticz-plugin-hmip-thermostat-o](https://user-images.githubusercontent.com/47274144/105820050-5552a480-5fb9-11eb-9cb0-fe44d65b0231.png)
+
 ## Solution
-To set a temperature setpoint or measure the actual temperature, following thermostat devices are supported by this plugin: HmIP-eTRV, HmIP-eTRV-2, HmIP-WTH-2.
+To set a temperature setpoint or measure the actual temperature, following thermostat devices are supported by this plugin: HmIP-eTRV-B, HmIP-eTRV-2, HmIP-WTH-2.
 The homematic IP devices are connected to a homematic IP system.
 The homematic IP system used is a [RaspberryMatic](https://raspberrymatic.de/) operating system running the Homematic Central-Control-Unit (CCU).
 The CCU has the additional software XML-API CCU Addon installed.
 Communication between Domoticz and the CCU is via HTTP XML-API requests with HTTP XML response.
 
 In Domoticz, following devices are created for a thermostat:
-(Type,SubType) [XML-API Device Datapoint Type] - Note)
+(Type,SubType) [XML-API Device Datapoint Type])
 * Setpoint (Thermostat,Setpoint) [SET_POINT_TEMPERATURE]
 * Temperature (Temp,LaCrosse TX3) [ACTUAL_TEMPERATURE]
 
 The device state is updated every 60 seconds (default).
 
-This plugin (only) uses the two device attributes SET_POINT_TEMPERATURE and ACTUAL_TEMPERATURE. Additional ttributes can be easily added to the plugin.
-
-If required, further actions can defined, by for example creating a dzVents script to send a notification / email (see below "dzVents Example").
+**Be Aware**
+This plugin (only) uses the two device attributes SET_POINT_TEMPERATURE and ACTUAL_TEMPERATURE.
+Additional attributes can be easily added to the plugin.
 
 ## Hardware
-Hardware subject to change.
 * Raspberry Pi 3B+ (RaspberryMatic System)
-* homematicIP Window and Door Contact with magnet (HMIP-SWDM)
+* homematicIP Thermostats HmIP-eTRV, HmIP-eTRV-2, HmIP-WTH-2
+* Note: Hardware subject to change.
 
 ## Software
-Software versions subject to change.
 * Raspberry Pi OS ( Raspbian GNU/Linux 10 buster, kernel 5.4.83-v7l+)
 * Domoticz 2020.2 (build 12847)
 * RaspberryMatic 3.55.5.20201226 [info](https://raspberrymatic.de/)
 * XML-API CCU Addon 1.20 [info](https://github.com/jens-maus/XML-API)
 * Python 3.7.3
 * Python module ElementTree
+* Note: Software versions subject to change.
 
 **Note on the Python Module ElementTree**
 The Python Module **ElementTree XML API** is used to parse the XML-API response.
@@ -56,7 +58,7 @@ The XML-API CCU Addon is required and installed via the HomeMatic WebUI > Settin
 **IMPORTANT**
 Be aware of the security risk, in case the HomeMatic Control Center can be reached via the Internet without special protection (see XML-API Guidelines).
 
-Next is based on a thermstat HIP-eTRV-2.
+Next description is based on a the thermostat HmIP-eTRV-2, but also applies to HmIP-eTRV-B and HmIP-WTH-2.
 
 ### XML-API Scripts
 The XML-API provides various tool scripts, i.e. devices state list, device state or set new value and many more.
